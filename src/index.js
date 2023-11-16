@@ -52,30 +52,18 @@ const foods = [
 ]
 
 const restaurantMenu = document.getElementById('restaurant-menu')
-restaurantMenu.addEventListener('mouseenter',(event)=>{
-    restaurantMenu.style.borderStyle = 'solid';
-    restaurantMenu.style.borderWidth = '5px';
-    restaurantMenu.style.borderColor = 'blue';
-})
-restaurantMenu.addEventListener('mouseleave',(event)=>{
-    restaurantMenu.style.borderStyle = '';
-    restaurantMenu.style.borderWidth = '';
-    restaurantMenu.style.borderColor = '';
-})
-
 
 foods.forEach(food => {
-    addFoodImageToRestaurantMenu(food);
+    addFoodImageToRestaurantMenu(food)
 })
-
 
 function addFoodImageToRestaurantMenu(food){
     const foodImage = document.createElement('img')
     foodImage.src = food.image
     restaurantMenu.appendChild(foodImage)
 
-    //Deliverable 1 (solution code)
-    foodImage.addEventListener('click', ()=>{
+    // Deliverable 1 solution code
+    foodImage.addEventListener('click', () => {
         displayFoodDetails(food)
     })
 }
@@ -91,31 +79,24 @@ function displayFoodDetails(food){
     foodDescriptionDisplay.textContent = food.description
 }
 
-displayFoodDetails(foods[0]);
+displayFoodDetails(foods[0])
 
+// Deliverable 2 solution code
+const newFoodForm = document.getElementById('new-food')
+newFoodForm.addEventListener('submit', (event) => {
+    event.preventDefault()
 
-//Deliverable 2 
-const newFoodForm = document.getElementById('new-food');
-
-newFoodForm.addEventListener('submit', (event)=>{ 
-
-    event.preventDefault();
-
-    const newNameInput = document.getElementById('new-name').value;
-    const newImageInput = document.getElementById('new-image').value;
-    const newDescriptionInput = document.getElementById('new-description').value;
-    
-    console.log(newNameInput);
-    console.log(newImageInput);
-    console.log(newDescriptionInput);
+    const newNameInputElement = document.getElementById('new-name')
+    const newImageInputElement = document.getElementById('new-image')
+    const newDescriptionInputElement = document.getElementById('new-description')
 
     const newFood = {
-        name: newNameInput,
-        image: newImageInput,
-        description: newDescriptionInput
+        name: newNameInputElement.value,
+        image: newImageInputElement.value,
+        description: newDescriptionInputElement.value
     }
 
-    addFoodImageToRestaurantMenu(newFood);
+    addFoodImageToRestaurantMenu(newFood)
 
-    newFoodForm.reset();
+    newFoodForm.reset()
 })
