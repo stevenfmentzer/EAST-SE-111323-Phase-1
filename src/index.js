@@ -125,8 +125,8 @@ otherFoods.forEach((food) => {
 })
 //Deliverable 3 
 
-const detailImage2 = document.querySelector('.detail-image')
-detailImage2.src = burgers[0].image
+const foodDetailImage = document.querySelector('.detail-image')
+foodDetailImage.src = burgers[0].image
 
 //Deliverable 4 
 
@@ -135,11 +135,14 @@ burgerName.textContent = burgers[0].name
 
 //Deliverable 5
 
-const description = document.querySelector('#description-display')
-description.textContent = burgers[0].description
+const burgerDescription = document.querySelector('#description-display')
+burgerDescription.textContent = burgers[0].description
 
 //Deliverable 6
 const restMenuImg = document.getElementById("restaurant-menu").querySelectorAll("img")
+//Alternate Option
+//const restMenuImg = document.querySelectorAll('div#restaurant-menu img')
+
 
 restMenuImg.forEach((element) => {
     element.style.borderStyle = 'solid';
@@ -153,6 +156,3 @@ const burgerImg = document.getElementsByClassName("burger")
 for (let index = 0 ; index < burgerImg.length ; index ++ ){
     burgerImg[index].style.borderColor = 'blue';
 }
-
-
-
